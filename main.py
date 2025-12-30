@@ -82,6 +82,15 @@ def update_item():
     else:
         print("Product not found.")
 
+def remove_item():
+    p_id = input("Enter product ID to remove: ")
+    if p_id in inventory:
+        del inventory[p_id]
+        product_ids.remove(p_id)
+        print("Item removed successfully!")
+    else:
+        print("Product not found.")
+
 while(selectedOption != 5):
     printMenu(mainMenu)
     selectedOption = int(input("Enter option number (1-5): "))
@@ -95,8 +104,7 @@ while(selectedOption != 5):
     elif selectedOption == 3:
         update_item()
     elif selectedOption == 4:
-        print("4")
-       # remove_item()
+        remove_item()
     elif selectedOption == 5:
         print("5")
        # save_to_file()
