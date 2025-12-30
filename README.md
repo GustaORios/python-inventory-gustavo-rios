@@ -4,13 +4,13 @@ A **Python console application** designed to manage product inventory. This proj
 
 ---
 
-## 📦 Project Overview
+## Project Overview
 
 The Inventory Management System is a menu-driven CLI application that helps manage a collection of products. It supports persistent storage using a text file and applies clean modular design principles for maintainability and clarity.
 
 ---
 
-## 🚀 How to Run the Program
+## How to Run 
 
 1. Ensure you have **Python 3.x** installed on your system.
 2. Download or clone this repository to your local machine.
@@ -23,7 +23,7 @@ python main.py
 
 ---
 
-## ✅ Features Implemented
+## Features
 
 - **Data Structures**
   - Dictionaries for inventory storage
@@ -48,7 +48,7 @@ python main.py
 
 ---
 
-## ⚠️ Limitations / Known Issues
+## Limitations
 
 - **Search Restriction**  
   Products can only be updated or removed using their exact **Product ID**. Searching by product name is not currently supported.
@@ -64,7 +64,7 @@ python main.py
 
 ---
 
-## 🛠️ Technologies Used
+## tech stack
 
 - Python 3.x
 - Object-Oriented Programming (OOP)
@@ -76,8 +76,4 @@ python main.py
 ## 📄 License
 
 This project is intended for **educational purposes** as part of coursework and does not include a commercial license.
-
----
-
-Feel free to improve or extend the system by adding search functionality, improving file storage (e.g., JSON), or building a GUI.
 
