@@ -70,7 +70,18 @@ def view_inventory():
             obj.display_details(p_id)
             print("-" * 20)
 
-    
+def update_item():
+    p_id = input("Enter product ID to update: ")
+    if p_id in inventory:
+        try:
+            new_qty = int(input("Enter new quantity: "))
+            inventory[p_id].quantity = new_qty
+            print("Inventory updated successfully!")
+        except ValueError:
+            print("Invalid quantity.")
+    else:
+        print("Product not found.")
+
 while(selectedOption != 5):
     printMenu(mainMenu)
     selectedOption = int(input("Enter option number (1-5): "))
@@ -82,8 +93,7 @@ while(selectedOption != 5):
     elif selectedOption == 2:
         view_inventory()
     elif selectedOption == 3:
-        print("3")
-       # update_item()
+        update_item()
     elif selectedOption == 4:
         print("4")
        # remove_item()
