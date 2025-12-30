@@ -91,6 +91,12 @@ def remove_item():
     else:
         print("Product not found.")
 
+def save_to_file():
+    with open("inventory.txt", "w") as file:
+        for p_id, obj in inventory.items():
+            line = f"{p_id},{obj.name},{obj.price},{obj.quantity},{obj.brand[0]}\n"
+            file.write(line)
+            
 while(selectedOption != 5):
     printMenu(mainMenu)
     selectedOption = int(input("Enter option number (1-5): "))
@@ -106,8 +112,7 @@ while(selectedOption != 5):
     elif selectedOption == 4:
         remove_item()
     elif selectedOption == 5:
-        print("5")
-       # save_to_file()
+        save_to_file()
         print("Saving and exiting...")
         break
     else:
