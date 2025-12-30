@@ -1,7 +1,21 @@
-
+import os
 #menu
 mainMenu = ("1.Add Item","2.View inventory","3.Update item","4.Remove item", "5.Exit")
 selectedOption = 0
+inventory = {}
+categories = ["Electronics", "Home", "Office"]
+product_ids = set()
+
+def load_from_file():
+    if os.path.exists("inventory.txt"):
+        with open("inventory.txt", "r") as file:
+            for line in file:
+                parts = line.strip().split(",")
+                if len(parts) >= 5:
+                    p_id, name, price, qty, brand = parts[0], parts[1], parts[2], parts[3], parts[4]
+                    prod = Product(name, price, qty, (brand,))
+                    inventory[p_id] = prod
+                    product_ids.add(p_id)
 
 def printMenu(menuItems):
     print("-" * 20)
@@ -28,11 +42,6 @@ class PerishableProduct(Product):
     def display_details(self, product_id):
         super().display_details(product_id)
         print(f"Expiry Date: {self.expiry_date}")
-
-inventory = {}
-categories = ["Electronics", "Home", "Office"]
-product_ids = set()
-
 
 def add_item():
     try:
@@ -96,7 +105,9 @@ def save_to_file():
         for p_id, obj in inventory.items():
             line = f"{p_id},{obj.name},{obj.price},{obj.quantity},{obj.brand[0]}\n"
             file.write(line)
-            
+
+load_from_file()
+
 while(selectedOption != 5):
     printMenu(mainMenu)
     selectedOption = int(input("Enter option number (1-5): "))
